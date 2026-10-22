@@ -1,0 +1,86 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+online/pca
+https://ylopenapi.jtexpress.my/
+查询平台的收派件范围
+${r["c"]}/${s}
+${r["b"]}/${s}
+Headers
+apiAccount
+Number
+Y
+接入方可在控制台的应用内查看apiAccount
+digest
+String
+Y
+签名字符串,请在签名工具内获取
+timestamp
+Number
+Y
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+String(32)
+N
+2、省；3市；4、区域(不传查全部可收派省市区，传3查询可收派市)
+响应参数
+String
+Y
+返回码，见附录
+msg
+String
+Y
+描述
+data
+Object
+Y
+业务数据
+data类型说明
+prov
+String(32)
+N
+省份名称
+city
+String(32)
+N
+城市名称
+area
+String(32)
+N
+区域名称
+Header：
+    apiAccount=1627
+    digest=U40e5sumorgd3YgZzU61Mw==
+    timestamp=1565238848921
+
+Body：
+    bizContent= {
+      "type":"4"
+      }
+{
+    "code": "1",
+    "msg": "success",
+    "data": {
+        "area": "南山区",
+        "city": "深圳市",
+        "prov": "广东省"
+    }
+}
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"type":"4"}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/
+https://ylopenapi.jtexpress.my/mock/

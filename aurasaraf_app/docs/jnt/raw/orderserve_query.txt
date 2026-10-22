@@ -1,0 +1,341 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+order/getOrders
+https://ylopenapi.jtexpress.my/
+查询新增订单接口创建的订单
+${d["c"]}/${s}
+${d["b"]}/${s}
+Headers
+apiAccount
+Number
+Y
+接入方可在控制台的应用内查看apiAccount
+digest
+String
+Y
+签名字符串,请在签名工具内获取
+timestamp
+Number
+Y
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+customerCode
+String(30)
+Y
+J0086474299
+客户编码（联系出货网点提供）
+password
+String(100)
+Y
+请在签名工具内获取接口的password
+txlogisticId
+String(50)
+Y
+客户订单号
+响应参数
+String(10)
+Y
+为成功 其他为失败,此时关注msg中返回的失败原因
+msg
+String(100)
+Y
+success
+返回信息
+data
+Object
+Y
+业务数据
+requestId
+String(30)
+Y
+唯一请求ID;有问题时,可以提供这个信息
+data类型说明
+txlogisticId
+String(50)
+Y
+客户订单号
+billCode
+String(30)
+Y
+运单号
+serviceType
+String(10)
+Y
+1
+<p>${e.$lang("服务类型")}</p><p>${e.$lang("1 上门取件")}</p><p>${e.$lang("6 上门寄件")}</p>
+serviceType
+String(10)
+Y
+1
+<p>${e.$lang("支付方式")}</p><p>${e.$lang("PP_PM 寄付月结")}</p><p>${e.$lang("PP_CASH 寄付现结")}</p><p>${e.$lang("CC_CASH 到付现结")}</p>
+serviceType
+String(10)
+Y
+1
+<p>${e.$lang("快件类型")}</p><p>${e.$lang("EX 次日达")}</p><p>${e.$lang("EZ 标准快递")}</p><p>${e.$lang("FD 鲜运")}</p>
+items
+Object
+N
+物品信息
+packageInfo
+Object
+Y
+包裹信息
+sendStartTime
+String(30)
+N
+2024-05-09 08:30:09
+物流公司上门取货开始时间
+sendEndTime
+String(30)
+N
+2024-05-09 10:30:09
+客户物流公司上门取货结束时间
+offerFeeInfo
+Object
+N
+保价，单位：“MYR”
+codInfo
+Object
+N
+代收货款，单位为”MYR“
+customsInfo
+Object
+N
+海关信息
+multipleVotes
+Array
+N
+一票多件信息，包含主子单的实际重量、长、宽、高，运单号
+packageInfo参数
+packageQuantity
+String(1-999)
+Y
+包裹总数量
+weight
+String(0.01-999.99)
+Y
+50.12
+包裹总重量，支持2位小数，单位是KG
+packageValue
+String(3)
+Y
+商品总价值，单位是（MYR）
+goodsType
+String(4)
+Y
+ITN2
+ITN2：⽂件 ITN8：包裹
+length
+String(0.01-999.99)
+N
+长，单位是（cm）
+String(0.01-999.99)
+N
+宽，单位是（cm）
+height
+String(0.01-999.99)
+N
+高，单位是（cm）
+offerFeeInfo参数
+offerValue
+String(0.01-999999.99)
+N
+保价金额，单位是（MYR）
+codInfo参数
+codValue
+String(0.01-999999.99)
+N
+代收货款，单位是（MYR）
+items参数
+itemName
+String(100)
+Y
+物品名称
+englishName
+String(100)
+N
+物品的英文名称 English
+String(1-9999999)
+Y
+物品数量
+itemValue
+String(0.01-9999999.99)
+Y
+物品单个价值
+itemCurrency
+String(10)
+N
+MYR
+价值的币种, 默认为MYR
+itemDesc
+String(200)
+N
+物品描述
+customsInfo参数
+customsCode
+String(100)
+N
+清关code 协调系统code
+nationalInspectionNo
+String(30)
+N
+商品海关备案号 跨境件报关需要填写
+String(1-999999)
+Y
+总数量
+weight
+String(0.01-999.99)
+Y
+总重量
+totalValue
+String(0.01-9999999)
+N
+总价值
+unitPrice
+String(0.01-9999999)
+Y
+单个价值
+currency
+String(10)
+Y
+MYR
+价值的币种
+originPlace
+String(200)
+N
+始发地
+brandName
+String(100)
+N
+品牌名称
+oldItem
+String(1)
+N
+是否是贸易件 0:不是 1：是
+multipleVotes参数
+subBillCode
+String(30)
+Y
+主运单号和子运单号
+actualWeight
+String(0.01-999.99)
+Y
+包裹重量，支持2位小数，单位是KG
+length
+String(0.01-999.99)
+N
+长，单位是（cm）
+String(0.01-999.99)
+N
+宽，单位是（cm）
+height
+String(0.01-999.99)
+N
+高，单位是（cm）
+{
+    "customerCode": "ITTEST0001",
+    "password": "9C75439FB1FD01EB01861670DD1B949C",
+    "txlogisticId": "YLTEST202404101519"
+}
+{
+	"code": 1,
+	"msg": "success",
+	"data": {
+		"customerCode": "ITTEST0001",
+		"txlogisticId": "YLTEST202404101519",
+		"billCode": "630002864925",
+		"expressType": "EZ",
+		"serviceType": "1",
+		"sender": {
+			"name": "J&T sender ",
+			"postCode": "81930",
+			"mobile": "****3456",
+			"phone": "****3456",
+			"countryCode": "MYS",
+			"prov": "JOHOR",
+			"city": "KOTA TINGGI",
+			"area": "BANDAR PENAWAR"
+		},
+		"receiver": {
+			"name": "J&T receiver",
+			"postCode": "31000",
+			"mobile": "****7654",
+			"phone": "****7654",
+			"countryCode": "MYS",
+			"prov": "PERAK",
+			"city": "KINTA",
+			"area": "BATU GAJAH",
+			"address": "4678, Laluan Sentang 35"
+		},
+		"createOrderTime": "2024-06-19 06:13:57",
+		"sendStartTime": "2024-06-19 13:45:00",
+		"sendEndTime": "2024-06-25 16:23:00",
+		"payType": "PP_PM",
+		"packageInfo": {
+			"packageQuantity": 10,
+			"goodsType": "ITN2",
+			"length": 10,
+			"width": 10,
+			"packageValue": 880
+		},
+		"offerFeeInfo": {
+			"offerValue": 880
+		},
+		"codInfo": {
+			"codValue": 100
+		},
+		"multipleVotes": [{
+				"subBillCode": "670002864925",
+				"actualWeight": "21",
+				"length": "12",
+				"width": "12",
+				"height": "12"
+			},
+			{
+				"subBillCode": "670002864925-01",
+				"actualWeight": "21",
+				"length": "12",
+				"width": "12",
+				"height": "12"
+			}
+		],
+		"requestId": "00027ea9b253402facfe872d1915ec64"
+	}
+}
+999001010
+customerCode is required
+The customerCode field under Business Parameter is mandatory
+999001010
+password is required
+The password field under Business Parameter is mandatory
+999001010
+txlogisticId is required
+The txlogisticId field under Business Parameter is mandatory
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"serialNumber":["1598516207047"],"digest":"x+naV5ZQWEddcrRlxjX04Q==","customerCode":"J0086093125","command":1}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/
+https://ylopenapi.jtexpress.my/mock/
+145003031
+业务参数签名失败
+145003097
+时间范围非法
+145003102
+页码非法
+145003098
+超过数据限制

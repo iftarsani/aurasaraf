@@ -1,0 +1,98 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+https://ylopenapi.jtexpress.my/location/getLocation
+通过国家三字码获取省市区
+/location/getLocation
+/location/getLocation
+Headers
+apiAccount
+Number
+Y
+接入方可在控制台的应用内查看apiAccount
+digest
+String
+Y
+签名字符串,请在签名工具内获取
+timestamp
+Number
+Y
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+countryCode
+String(30)
+Y
+国家三字码 中国CHN
+响应参数
+String
+Y
+返回码，见附录
+msg
+String
+Y
+描述
+data
+Object
+Y
+业务数据
+data类型说明
+prov
+String(32)
+Y
+省份名称
+provCode
+String(32)
+Y
+省份编码
+city
+String(32)
+Y
+城市
+cityCode
+String(32)
+Y
+城市编码
+area
+String(32)
+Y
+区域
+areaCode
+String(32)
+Y
+区域编码
+postCode
+String(32)
+Y
+邮编
+Header：
+    apiAccount=1627
+    digest=U40e5sumorgd3YgZzU61Mw==
+    timestamp=1565238848921
+
+Body：
+    bizContent={
+            "countryCode": "CHN"
+            }
+{"code": "10","msg": "success","data": [{"parentId": 3,"prov": "安徽省","provCode": "3","city": "安庆","cityCode": "36","area": "迎江区","postCode": "12342","areaCode": "398"}]}
+145003090
+三字码信息不全
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"countryCode":"CHN"}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/location/getLocation
+https://ylopenapi.jtexpress.my/mock/location/getLocation
+145003090
+三字码信息不全

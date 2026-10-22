@@ -1,0 +1,126 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+billCode/getBatchBillCode
+getwaybill
+https://ylopenapi.jtexpress.my/
+与网点进行签约的客户，通过网点编码与业务员编码可进行提前获取电子面单库存
+${r["c"]}/${s}
+${r["b"]}/${s}
+Headers
+apiAccount
+Number
+Y
+接入方在平台的api账户标识
+digest
+String
+Y
+签名字符串
+timestamp
+Number
+Y
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+String(30)
+Y
+业务员编码或客户编码（区分大小写，联系出货网点提供）
+codeType
+String(30)
+Y
+01：客户编码（获取客户号段时，需采用客户账号密码加密）
+                  02：业务员编码（获取业务员号段时，需采用网点编码加密）
+digest
+String(50)
+Y
+客户编码
+                  <p>签名，Base64(Md5(客户编号+密文+privateKey))，其中密文：MD5(明文密码+jadada236t2) 后大写</p>
+                  <p>业务员编码</p>
+                  <p>签名，Base64(Md5(业务员编码+密文+privateKey))，其中密文：(网点编码+jadada236t2) 大写</p>
+num
+Integer
+Y
+请输入获取数量，最多一次可获取10个
+响应参数
+String
+Y
+返回码，见附录
+msg
+String
+Y
+描述
+data
+Object
+业务数据
+data类型说明
+billCodes
+List<String>
+Y
+通用电子面单运单号
+Header：
+    apiAccount=1565238848921
+    digest=U40e5sumorgd3YgZzU61Mw==
+    timestamp=1001
+
+Body：
+    bizContent=  {
+  "code":"J0086000736",
+  "codeType":"01",
+  "num":"10",
+  "digest":"12oAFDImkoIn94lMJGzjQA==1"
+}
+{
+	"code": "1",
+  "msg": "success",
+  "data":{
+        "billCodes": [
+          "UT0000346840348",
+          "UT0000347056956",
+          "UT0000347023053",
+          "UT0000346997194",
+          "UT0000346802241",
+          "UT0000347144624",
+          "UT0000347226577",
+          "UT0000346763286",
+          "UT0000347161687",
+          "UT0000347031325"
+      ]
+  }
+}
+1450033310
+电子面单库存不足
+145003336
+编码不能为空
+145003337
+编码类型不能为空
+145003338
+获取数量不能为空
+145003339
+请数据正确数量
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"code":"J0086000736","codeType":"01","num":"10","digest":"12oAFDImkoIn94lMJGzjQA==1"}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/
+https://ylopenapi.jtexpress.my/mock/
+1450033310
+电子面单库存不足
+145003336
+编码不能为空
+145003337
+编码类型不能为空
+145003338
+获取数量不能为空
+145003339
+请数据正确数量

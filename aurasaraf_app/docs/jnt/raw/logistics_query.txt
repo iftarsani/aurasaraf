@@ -1,0 +1,283 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+logistics/trace
+https://ylopenapi.jtexpress.my/
+通过单号查询快件的轨迹信息
+${p["c"]}/${s}
+${p["b"]}/${s}
+Headers
+apiAccount
+Number
+Y
+接入方可在控制台的应用内查看apiAccount
+digest
+String
+Y
+签名字符串,请在签名工具内获取
+timestamp
+Number
+Y
+(UTC+8)
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+customerCode
+String(30)
+Y
+客户编码（联系出货网点提供）
+password
+String(100)
+Y
+请在签名工具内获取接口的password
+txlogisticId
+String(50)
+N
+<p>${e.$lang("客户订单号")}</p><p>${e.$lang("txlogisticId或者billCode 任一一个必填")}</p>
+billCode
+String(30)
+N
+运单号，如果需要查询一票多件子单，此字段传子单号。
+响应参数
+String(10)
+Y
+1为成功 其他为失败,此时关注msg中返回的失败原因
+msg
+String(100)
+Y
+success
+返回信息
+data
+Object
+Y
+业务数据
+requestId
+String(30)
+Y
+唯一请求ID;有问题时,可以提供这个信息
+data类型说明
+billCode
+String
+Y
+运单号
+details
+Array
+Y
+运单轨迹详情
+details类型说明
+scanTime
+String
+Y
+扫描时间
+desc
+String
+Y
+轨迹描述
+scanTypeCode
+String
+Y
+10
+<p>700</p> <p>701</p> <p>702</p> <p>703</p> <p>704</p> <p>400</p> <p>401</p> <p>402</p> <p>403</p> <p>404</p> <p>405</p> <p>10</p> <p>20</p> <p>30</p> <p>94</p> <p>100</p> <p>110</p> <p>172</p> <p>173</p> <p>200</p> <p>300</p> <p>301</p> <p>302</p> <p>303</p> <p>304</p> <p>305</p> <p>306</p>
+scanTypeName
+String
+Y
+快件揽收
+<p>${e.$lang("驿站入库")}</p><p>${e.$lang("取件通知")}</p><p>${e.$lang("驿站出库")}</p><p>${e.$lang("异常出库")}</p><p>${e.$lang("取件交接")}</p><p>${e.$lang("清关提货")}</p><p>${e.$lang("清关中")}</p><p>${e.$lang("清关放行")}</p><p>${e.$lang("清关交付")}</p><p>${e.$lang("大包入库")}</p><p>${e.$lang("中心入库")}</p><p>${e.$lang("快件揽收")}</p><p>${e.$lang("发件扫描")}</p><p>${e.$lang("到件扫描")}</p><p>${e.$lang("出仓扫描")}</p><p>${e.$lang("快件签收")}</p><p>${e.$lang("问题件扫描")}</p><p>${e.$lang("退件扫描")}</p><p>${e.$lang("退件签收")}</p><p>${e.$lang("Damage Parcel（异常终结：破损包裹）")}</p><p>${e.$lang("Lost Parcel（异常终结：丢失包裹）")}</p><p>${e.$lang("Dispose Parcel（异常终结：销毁包裹）")}</p><p>${e.$lang("Reject Parcel（异常终结：拒收包裹）")}</p><p>${e.$lang("Customs Confiscated Parcel（异常终结：海关扣押包裹）")}</p><p>${e.$lang("Exceed Life Cycle Parcel（异常终结：超生命周期包裹）")}</p><p>${e.$lang("Crossborder Dispose Parcel（异常终结：跨境销毁包裹）")}</p>
+scanType
+String
+Y
+Pick Up
+<p>${e.$lang("pop_arrived")}</p><p>${e.$lang("pop_reminder_sent")}</p><p>${e.$lang("signed_pop")}</p><p>${e.$lang("unreachable_returning")}</p><p>${e.$lang("unreachable_return_deliver_station_out")}</p><p>${e.$lang("Picked Up from Cargo Station")}</p><p>${e.$lang("Customs Clearance in Process")}</p><p>${e.$lang("Customs Clearance")}</p><p>${e.$lang("Package Inbound")}</p><p>${e.$lang("Package Inbound")}</p> <p>${e.$lang("快件揽收")}</p><p>${e.$lang("发件扫描")}</p><p>${e.$lang("到件扫描")}</p><p>${e.$lang("派件扫描")}</p><p>${e.$lang("快件签收")}</p><p>${e.$lang("问题件扫描")}</p><p>${e.$lang("退件扫描")}</p><p>${e.$lang("退件签收")}</p><p>${e.$lang("寄件入库")}</p><p>${e.$lang("Damage Parcel")}</p><p>${e.$lang("Lost Parcel")}</p><p>${e.$lang("Dispose Parcel")}</p><p>${e.$lang("Reject Parcel")}</p><p>${e.$lang("Customs Confiscated Parcel")}</p><p>${e.$lang("Exceed Life Cycle Parcel")}</p><p>${e.$lang("Crossborder Dispose Parcel")}</p>
+realWeight
+String
+Y
+10.22
+单位KG
+scanNetworkTypeName
+String
+Y
+2
+扫描网点类型： 1、中心 2、网点
+scanNetworkName
+String
+Y
+扫描网点名称
+staffName
+String
+Y
+业务员姓名
+staffContact
+String
+N
+业务员联系方式
+scanNetworkContact
+String
+N
+扫描网点联系方式
+scanNetworkProvince
+String
+Y
+扫描网点省份
+scanNetworkCity
+String
+Y
+扫描网点城市
+scanNetworkArea
+String
+Y
+扫描网点区/县
+sigPicUrl
+String
+N
+问题件/签收/退件签收图片链接，多个用“,”区分。
+longitude
+Number
+N
+经度（在问题件扫描时回传）
+latitude
+String
+N
+纬度（在问题件扫描时回传）
+timeZone
+String(5)
+N
+时区（ UTC+8）
+siteId
+String
+Y
+MYSB000002
+驿站ID
+siteName
+String
+Y
+Yoyi Numbak
+驿站名称
+siteType
+String
+Y
+3
+枚举值：3：代表驿站
+siteCollectCode
+String
+Y
+5-4-321
+X货架号 - X行 - X货物
+{
+    "customerCode": "ITTEST0001",
+    "password": "9C75439FB1FD01EB01861670DD1B949C",
+    "txlogisticId": "YLTEST202404101519",
+    "billCode": "630002864925"
+}
+{
+"code": "1",
+"msg": "success",
+"requestID": "202107300757240102310210720900DFEA",
+"data": [
+{
+"billCode": "JMX100099499533",
+"details": [
+{
+"scanNetworkCountray": "",
+"longitude": "",
+"latitude": "",
+"otp": "",
+"secondLevelTypeCode": "",
+"wcTraceFlag": "",
+"timeZone": "GMT+08:00",
+"postCode": "",
+"paymentStatus": "",
+"paymentMethod": "",
+"scanTime": "2024-03-11 14:00:45",
+"desc": "【Jalpan de Serra】【JLP-Sierra.pdv】El mensajero de J&T Express Imelda Pintor-Jalpan.pas está en camino a tu domicilio. Si requieres mayor información, contáctanos al 5571001047",
+"scanType": "On Delivery",
+"scanNetworkTypeName": "网点",
+"scanNetworkName": "JLP-Sierra.pdv",
+"scanNetworkId": 1610,
+"staffName": null,
+"staffContact": null,
+"scanNetworkContact": null,
+"scanNetworkProvince": "Querétaro",
+"scanNetworkCity": "Jalpan de Serra",
+"scanNetworkArea": "Centro",
+"nextStopName": null,
+"remark": null,
+"nextNetworkProvinceName": "Querétaro",
+"nextNetworkCityName": "Jalpan de Serra",
+"nextNetworkAreaName": "Centro",
+"problemType": null,
+"signUrl": null,
+"sigPicUrl": null,
+"electronicSignaturePicUrl": null,
+"scanTypeCode": "94"
+},
+{
+"scanNetworkCountray": "",
+"longitude": "",
+"latitude": "",
+"otp": "",
+"secondLevelTypeCode": "",
+"wcTraceFlag": "",
+"timeZone": "GMT+08:00",
+"postCode": "",
+"paymentStatus": "",
+"paymentMethod": "",
+"scanTime": "2024-03-11 14:00:45",
+"desc": "【Jalpan de Serra】【JLP-Sierra.pdv】El mensajero de J&T Express Imelda Pintor-Jalpan.pas está en camino a tu domicilio. Si requieres mayor información, contáctanos al 5571001047",
+"scanType": "On Delivery",
+"scanNetworkTypeName": "网点",
+"scanNetworkName": "JLP-Sierra.pdv",
+"scanNetworkId": 1610,
+"staffName": null,
+"staffContact": null,
+"scanNetworkContact": null,
+"scanNetworkProvince": "Querétaro",
+"scanNetworkCity": "Jalpan de Serra",
+"scanNetworkArea": "Centro",
+"nextStopName": null,
+"remark": null,
+"nextNetworkProvinceName": null,
+"nextNetworkCityName": null,
+"nextNetworkAreaName": null,
+"problemType": null,
+"signUrl": null,
+"sigPicUrl": null,
+"electronicSignaturePicUrl": null,
+"scanTypeCode": "94"
+}
+]
+}
+]
+}
+999001030
+数据未找到
+No order data found
+999001010
+customerCode is required
+The customerCode field under Business Parameter is mandatory
+999001010
+password is required
+The password field under Business Parameter is mandatory
+999001010
+txlogisticId is required
+The txlogisticId field under Business Parameter is mandatory
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"billCodes":"UT0000352320970,UT0000359748995,UT0000353613157"}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/
+https://ylopenapi.jtexpress.my/mock/
+145003100
+运单号非法
+145003502
+运单号个数超过30

@@ -1,0 +1,97 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+trace/subscribe
+subscribe
+https://ylopenapi.jtexpress.my/
+${this.$lang("向极兔订阅需推送物流轨迹的运单号")} (${this.$lang("注意事项：需提供回传物流轨迹的URL")})
+${d["c"]}/${s}
+${d["b"]}/${s}
+Headers
+apiAccount
+Number
+Y
+接入方可在控制台的应用内查看apiAccount
+digest
+String
+Y
+签名字符串,请在签名工具内获取
+timestamp
+Number
+Y
+(UTC+8)
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+customerCode
+String(30)
+Y
+J0086474299
+客户编码（联系出货网点提供）
+password
+String(100)
+Y
+请在签名工具内获取接口的password
+list
+Object
+Y
+订阅的数据
+list参数
+traceNode
+Y
+10&20&30
+<p>${e.$lang("10：快件揽收")}</p><p>${e.$lang("20：发件扫描")}</p><p>${e.$lang("30：到件扫描")}</p>
+                     <p>${e.$lang("94：派件扫描")}</p><p>${e.$lang("100：快件签收")}</p><p>${e.$lang("110：问题件扫描")}</p><p>${e.$lang("172：退件扫描 ")}</p><p>${e.$lang("173：退件签收")}</p><p>${e.$lang("200：寄件入库")}</p>
+billCode
+String(30)
+Y
+运单号
+响应参数
+String(10)
+Y
+1为成功 其他为失败,此时关注msg中返回的失败原因
+msg
+String(100)
+Y
+success
+返回信息
+data
+Object
+Y
+业务数据
+requestId
+String(30)
+Y
+唯一请求ID;有问题时,可以提供这个信息
+{
+    "customerCode": "ITTEST0001",
+    "password": "9C75439FB1FD01EB01861670DD1B949C",
+    "list": [
+        {
+            "traceNode": "10&20&30&94&100&110&172&173&200",
+            "billCode": "630002864925"
+        }
+    ]
+}
+{"code":"1","msg":"success","data":"SUCCESS","requestID":  "211212121212"}
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"id":"1001","list":[{"traceNode":"1&2&3&4&5&6&7&8&9&10&11","waybillCode":"JT4000096429493"}]}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/trace/subscribe
+https://ylopenapi.jtexpress.my/mock/trace/subscribe
+145013501
+运单号个数超过1000
+145003100
+运单号非法

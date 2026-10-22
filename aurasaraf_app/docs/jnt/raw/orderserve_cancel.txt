@@ -1,0 +1,136 @@
+main-r-wrap
+main-r-top
+main-r_top_nav
+在线文档
+main-r-bottom
+main-r-bottom
+order/cancelOrder
+https://ylopenapi.jtexpress.my/
+取消通过新增订单接口生成的订单
+${d["c"]}/${s}
+${d["b"]}/${s}
+Headers
+apiAccount
+Number
+Y
+接入方可在控制台的应用内查看apiAccount
+digest
+String
+Y
+签名字符串,请在签名工具内获取
+timestamp
+Number
+Y
+(UTC+8)
+时间戳，毫秒
+请求参数
+bizContent
+String
+Y
+Business Parameter
+业务参数模块内json格式的string类型
+业务参数
+customerCode
+String(30)
+Y
+J0086474299
+客户编码（联系出货网点提供）
+password
+String(100)
+Y
+Plain text password: H5CD3zE6
+请在签名工具内获取接口的password
+txlogisticId
+String(50)
+Y
+客户订单号
+billCode
+String(30)
+N
+运单号
+reason
+String(300)
+Y
+取消原因
+响应参数
+String(10)
+Y
+1
+1为成功 其他为失败,此时关注msg中返回的失败原因
+msg
+String(100)
+Y
+success
+返回信息
+data
+Object
+Y
+业务数据
+requestId
+String(30)
+Y
+唯一请求ID;有问题时,可以提供这个信息
+data参数
+billCode
+String(50)
+Y
+返回客户订单号
+txlogisticId
+String(30)
+Y
+返回运单号
+{
+    "customerCode": "ITTEST0001",
+    "password": "9C75439FB1FD01EB01861670DD1B949C",
+    "txlogisticId": "YLTEST202404101520",
+    "billCode": "630002563505",
+    "reason": "The customer cancelled the order"
+}
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "txlogisticId": "YLTEST202404101520",
+        "billCode": "630002563505"
+    },
+    "requestId": "97512378ad844b3a9668c07a2628da88"
+}
+999002000
+数据未找到
+No order data found
+999002010
+order status can not be cancel
+The order status is not allowed to cancel
+999001010
+customerCode is required
+The customerCode field under Business Parameter is mandatory
+999001010
+password is required
+The password field under Business Parameter is mandatory
+999001010
+txlogisticId is required
+The txlogisticId field under Business Parameter is mandatory
+999001010
+billCode is required
+The billCode field under Business Parameter is mandatory
+999001010
+reason is required
+The cancellation reason is mandatory
+999001010
+reason is not allow more than 300 character
+The cancellation reason max character length is 300
+U40e5sumorgd3YgZzU61Mw==
+1565238848921
+{"customerCode":"J0086003729","digest":"b2I7zPYtMoDj07mad+gTA==","reason":"取消","txlogisticId":"1598516207047","orderType":"1"}
+apiAccount
+digest
+timestamp
+bizContent
+/mock/
+https://ylopenapi.jtexpress.my/mock/
+145003031
+业务参数签名失败
+145003082
+客户订单号不能为空或过长
+145003089
+取消原因不能为空

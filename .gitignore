@@ -1,0 +1,7 @@
+config.php
+.ftpquota
+.vscode/
+.claude/settings.local.json
+*.sql
+*.log
+*.zip
